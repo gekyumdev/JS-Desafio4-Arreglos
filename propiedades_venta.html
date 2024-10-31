@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades venta</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/estilos.css" />
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <section id="venta" class="mb-5">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+            <a class="navbar-brand" href="./index.html">Inmobiliaria ADL</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="./propiedades_venta.html">En venta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./propiedades_alquiler.html">Alquiler</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <main class="container-fluid main-section">
+            <h1 class="text-white">Encuentra tu nueva propiedad</h1>
+        </main>
+        <div class="container mt-5">
+    </section>
+        <script>
+            const propiedades_alquiler = [
+                    {
+                        nombre: 'Apartamento de lujo en zona exclusiva',
+                        src: 'ruta/a/la/imagen.jpg', // Reemplaza con la ruta de la imagen
+                        descripcion: 'Este apartamento de lujo está ubicado en una exclusiva zona residencial',
+                        ubicacion: '123 Luxury Lane, Prestige Suburb, CA 45678',
+                        habitaciones: 4,
+                        banos: 4,
+                        costo: 5000,
+                        smoke: false,
+                        pets: false
+                    },
+                    {
+                        nombre: 'Casa rural con amplio terreno',
+                        src: 'ruta/a/la/imagen3.jpg', // Reemplaza con la ruta de la imagen
+                        descripcion: 'Casa espaciosa en el campo, perfecta para familias que buscan un entorno natural.',
+                        ubicacion: '321 Greenway Rd, Countryside, TX 75001',
+                        habitaciones: 5,
+                        banos: 3,
+                        costo: 6500,
+                        smoke: true,
+                        pets: false
+                    },
+                    {
+                        nombre: 'Departamento acogedor en el centro',
+                        src: 'ruta/a/la/imagen2.jpg', // Reemplaza con la ruta de la imagen
+                        descripcion: 'Departamento en el centro de la ciudad, cerca de todas las comodidades y servicios.',
+                        ubicacion: '456 Main St, Downtown, NY 10001',
+                        habitaciones: 2,
+                        banos: 1,
+                        costo: 3500,
+                        smoke: false,
+                        pets: false
+                    },
+                    {
+                        nombre: 'Casa moderna con vista al mar',
+                        src: 'ruta/a/la/imagen1.jpg', // Reemplaza con la ruta de la imagen
+                        descripcion: 'Hermosa casa con vista al mar, ideal para quienes buscan tranquilidad y lujo.',
+                        ubicacion: '789 Ocean Drive, Seaside Town, FL 33139',
+                        habitaciones: 3,
+                        banos: 3,
+                        costo: 7500,
+                        smoke: true,
+                        pets: true
+                    }
+                ];
+            const ventaSection=document.getElementById(venta)
+            for(aux of propiedades_alquiler){
+                if(aux.pets==true){
+                    aux.pets='Se permiten mascotas'
+                }else{
+                    aux.pets='No se permiten mascotas'
+                }
+                if(aux.smoke==true){
+                    aux.smoke='Se permite fumar'
+                }else{
+                    aux.smoke='No se permite fumar'
+                }
+                const template=`
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img
+                            src="https://fotos.perfil.com/2018/09/21/trim/950/534/nueva-york-09212018-366965.jpg"
+                            class="card-img-top"
+                            alt="Imagen del departamento"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                ${aux.nombre}
+                                </h5>
+                                <p class="card-text">
+                                    ${aux.descripcion}
+                                </p>
+                                <p>
+                                    <i class="fas fa-map-marker-alt"></i>${aux.ubicacion}
+                                </p>
+                                <p>
+                                    <i class="fas fa-bed"></i> ${aux.habitaciones} |
+                                    <i class="fas fa-bath"></i> ${aux.banos}
+                                </p>
+                                <p><i class="fas fa-dollar-sign"></i>${aux.costo}</p>
+                                <p class="text-danger">
+                                <i class="fas fa-smoking-ban"></i> ${aux.smoke}
+                                </p>
+                                <p class="text-danger">
+                                <i class="fa-solid fa-ban"></i> ${aux.pets}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+                ventaSection.innerHTML=+template;
+            }
+        </script>
+</body>
+</html>
